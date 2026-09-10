@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Learning Ad Blocker",
+  "version": "1.0.0",
+  "description": "Educational Manifest V3 ad and tracker blocker demonstrating declarativeNetRequest and cosmetic filtering, including on YouTube.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options/options.html",
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_ads_trackers",
+        "enabled": true,
+        "path": "rules/rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": ["*://*.youtube.com/*"],
+      "js": ["scripts/cosmetic-common.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["scripts/cosmetic-youtube.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ]
+}

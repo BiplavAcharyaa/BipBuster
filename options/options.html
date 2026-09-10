@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Learning Ad Blocker Settings</title>
+<link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <h1>Learning Ad Blocker — Settings</h1>
+
+    <section class="card">
+      <h2>General</h2>
+      <div class="row">
+        <span>Enable blocking</span>
+        <label class="switch">
+          <input type="checkbox" id="blockingToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="row">
+        <span>Enable cosmetic filtering</span>
+        <label class="switch">
+          <input type="checkbox" id="cosmeticToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Custom blocked domains</h2>
+      <p class="hint">Add extra domains to block network requests to, e.g. <code>example-ads.com</code></p>
+      <div class="add-row">
+        <input type="text" id="domainInput" placeholder="ads.example.com" />
+        <button id="addDomainBtn">Add</button>
+      </div>
+      <ul id="domainList"></ul>
+    </section>
+
+    <p id="savedMessage" class="saved-message"></p>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

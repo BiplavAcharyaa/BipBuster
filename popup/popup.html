@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Learning Ad Blocker</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Learning Ad Blocker</h1>
+      <p class="subtitle">Educational Manifest V3 blocker</p>
+    </header>
+
+    <section class="status-card">
+      <div class="status-row">
+        <span class="status-label">Blocking</span>
+        <label class="switch">
+          <input type="checkbox" id="blockingToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Cosmetic filtering</span>
+        <label class="switch">
+          <input type="checkbox" id="cosmeticToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="stats-card">
+      <div class="stat">
+        <span class="stat-value" id="tabBlockedCount">0</span>
+        <span class="stat-label">requests blocked on this tab</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="customDomainCount">0</span>
+        <span class="stat-label">custom blocked domains</span>
+      </div>
+    </section>
+
+    <footer>
+      <button id="openOptions">Manage custom domains</button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
